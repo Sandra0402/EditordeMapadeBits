@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Datos</title>
+    <style>
+        body {
+            background-color: #6d289b; /* Fondo */
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .form-container {
+            background: rgb(160, 187, 87);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            width: 300px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .campo {
+            margin-bottom: 12px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 6px;
+            border: none;
+            border-radius: 8px;
+            background-color: #dfe4d9; /* un solo color para todas las casillas */
+            font-weight: bold;
+        }
+
+        #enviar {
+            background-color: #d688bf;
+            cursor: pointer;
+        }
+
+        #enviar:hover {
+            background-color: #646ac0;
+        }
+
+        .resultado {
+            margin-top: 20px;
+            padding: 15px;
+            width: 300px;
+            background: #ccb7a5;
+            border-radius: 10px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Formulario de Registro</h2>
+        <form id="datosForm">
+            <div class="campo">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" required>
+            </div>
+            <div class="campo">
+                <label for="apellidos">Apellidos:</label>
+                <input type="text" id="apellidos" required>
+            </div>
+            <div class="campo">
+                <label for="correo">Correo:</label>
+                <input type="email" id="correo" required>
+            </div>
+            <div class="campo">
+                <label for="edad">Edad:</label>
+                <input type="number" id="edad" required>
+            </div>
+            <div class="campo">
+                <input type="submit" id="enviar" value="Registrar">
+            </div>
+        </form>
+    </div>
+
+    <div class="resultado" id="resultado">
+        <h3>Datos Registrados:</h3>
+        <p id="mostrarNombre"></p>
+        <p id="mostrarApellidos"></p>
+        <p id="mostrarCorreo"></p>
+        <p id="mostrarEdad"></p>
+    </div>
+
+    <script>
+        document.getElementById("datosForm").addEventListener("submit", function(event){
+            event.preventDefault(); // Evita que se recargue la página
+
+            // Obtener valores
+            let nombre = document.getElementById("nombre").value;
+            let apellidos = document.getElementById("apellidos").value;
+            let correo = document.getElementById("correo").value;
+            let edad = document.getElementById("edad").value;
+
+            // Mostrar en pantalla
+            document.getElementById("mostrarNombre").textContent = "Nombre: " + nombre;
+            document.getElementById("mostrarApellidos").textContent = "Apellidos: " + apellidos;
+            document.getElementById("mostrarCorreo").textContent = "Correo: " + correo;
+            document.getElementById("mostrarEdad").textContent = "Edad: " + edad;
+
+            // Limpiar formulario
+            document.getElementById("datosForm").reset();
+        });
+    </script>
+</body>
+</html>
