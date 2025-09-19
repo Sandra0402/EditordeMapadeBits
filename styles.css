@@ -1,0 +1,76 @@
+/* Fondo general de la página */
+body {
+  background-color: #e284b0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+}
+
+/* Contenedor del formulario */
+.container {
+  background-color: #87d1a9;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  width: 350px;
+}
+
+/* Estilo del título */
+.container h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+/* Estilos generales de etiquetas */
+label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+/* Estilos de los campos */
+input, select {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+/* Colores personalizados por campo */
+.campo-nombre {
+  background-color: #e483cc;
+}
+.campo-apellidos {
+  background-color: #e483cc;
+}
+.campo-edad {
+  background-color: #e483cc;
+}
+.campo-sexo {
+  background-color: #e483cc;
+}
+.campo-email {
+  background-color: #e483cc;
+}
+
+/* Botón */
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
