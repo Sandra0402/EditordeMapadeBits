@@ -2,69 +2,38 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulario de Registro</title>
+  <title>Editor de Bitmap</title>
   <link rel="stylesheet" href="styles.css">
-  <style>
-    
-  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Registro de Usuario</h1>
-    <form id="formRegistro">
-      <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" name="nombre" class="campo-nombre" required>
+  <h1>Editor de Mapa de Bits</h1>
 
-      <label for="apellidos">Apellidos:</label>
-      <input type="text" id="apellidos" name="apellidos" class="campo-apellidos" required>
+  <input type="file" id="upload" accept="image/*">
+  <br><br>
 
-      <label for="edad">Edad:</label>
-      <input type="number" id="edad" name="edad" class="campo-edad" required>
-
-      <label for="sexo">Sexo:</label>
-      <select id="sexo" name="sexo" class="campo-sexo" required>
-        <option value="">Seleccionar</option>
-        <option value="masculino">Masculino</option>
-        <option value="femenino">Femenino</option>
-        <option value="otro">Otro</option>
-      </select>
-
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" class="campo-email" required>
-
-      <button type="submit">Registrarse</button>
-    </form>
-
-    <!-- Aquí se mostrarán los datos -->
-    <div id="resultado" class="resultado" style="display: none;"></div>
+  <!-- Contenedor del canvas -->
+  <div class="canvas-container">
+    <canvas id="canvas"></canvas>
   </div>
 
-  <script>
-    document.getElementById("formRegistro").addEventListener("submit", function(e) {
-      e.preventDefault(); // Evita recargar la página
+  <br><br>
 
-      // Capturar valores
-      let nombre = document.getElementById("nombre").value;
-      let apellidos = document.getElementById("apellidos").value;
-      let edad = document.getElementById("edad").value;
-      let sexo = document.getElementById("sexo").value;
-      let email = document.getElementById("email").value;
+  <!-- Contenedor de controles -->
+  <div class="controls-container">
+    <button id="grayscale">Escala de grises</button>
+    <button id="invert">Invertir colores</button>
+    <button id="distort">Distorsionar</button>
+    <br><br>
 
-      // Mostrar los datos
-      let resultado = `
-        <h3>Datos Registrados:</h3>
-        <p><strong>Nombre:</strong> ${nombre}</p>
-        <p><strong>Apellidos:</strong> ${apellidos}</p>
-        <p><strong>Edad:</strong> ${edad}</p>
-        <p><strong>Sexo:</strong> ${sexo}</p>
-        <p><strong>Email:</strong> ${email}</p>
-      `;
+    <label for="brightnessRange">Brillo:</label>
+    <input type="range" id="brightnessRange" min="-100" max="100" value="0">
+    <span id="brightnessValue">0</span>
+    <br><br>
 
-      let divResultado = document.getElementById("resultado");
-      divResultado.innerHTML = resultado;
-      divResultado.style.display = "block";
-    });
-  </script>
+    <button id="reset">Restablecer</button>
+    <button id="download">Descargar</button>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

@@ -1,47 +1,92 @@
+/* Fondo con imagen */
 body {
-      font-family: 'Times New Roman', Times, serif, sans-serif;
-      background: #eccbcb;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      flex-direction: column;
-    }
-    .container {
-      background: #94b8cf;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      width: 320px;
-    }
-    h1 {
-      text-align: center;
-    }
-    label {
-      display: block;
-      margin-top: 10px;
-    }
-    input, select, button {
-      width: 100%;
-      padding: 8px;
-      margin-top: 5px;
-      border-radius: 5px;
-      border: 1px solid #0e0d0d;
-    }
-    button {
-      background: #4CAF50;
-      color: #161616;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 15px;
-    }
-    button:hover {
-      background: #b35ba0;
-    }
-    .resultado {
-      margin-top: 20px;
-      padding: 15px;
-      background: #cbdb3c;
-      border-left: 5px solid #a33737;
-      border-radius: 8px;
-    }
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-image: url('https://img.freepik.com/vector-gratis/fondo-brillo-arco-iris-realista_23-2149707530.jpg?semt=ais_hybrid&w=740&q=80'); /* Cambia esto si es una URL externa */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #000; /* Color de respaldo si la imagen no carga */
+    padding: 20px;
+    margin: 0;
+    min-height: 100vh;
+}
+
+/* Capa blanca semitransparente para mejorar visibilidad */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(255, 255, 255, 0.7); /* blanco con opacidad */
+    z-index: -1;
+}
+
+/* Título */
+h1 {
+    color: #0f0f0f;
+}
+
+/* Centrado de contenedores */
+.canvas-container,
+.controls-container {
+    margin: 20px auto;
+    display: inline-block;
+}
+
+/* Canvas */
+.canvas-container {
+    background-color: #f0d9eb;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.canvas-container:hover {
+    transform: scale(1.1);
+}
+
+canvas {
+    border: 1px solid #070707;
+    max-width: 100%;
+}
+
+/* Controles */
+.controls-container {
+    background-color: #eedbe8;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Botones */
+button {
+    margin: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    color: rgb(22, 21, 22);
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#grayscale,
+#invert,
+#distort,
+#reset,
+#download {
+    background-color: #607d8b;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* Slider */
+input[type="range"] {
+    width: 200px;
+    vertical-align: middle;
+}
