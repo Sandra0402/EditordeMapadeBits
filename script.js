@@ -59,27 +59,32 @@ document.getElementById('invert').addEventListener('click', () => {
 // Distorsionar
 document.getElementById('distort').addEventListener('click', () => {
   if (!originalImage) return;
-  let imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-  let data = imageData.data;
-  let width = canvas.width;
-  let height = canvas.height;
 
-  for (let y = 0; y < height - 1; y++) {
-    for (let x = 0; x < width - 1; x++) {
-      const index = (y * width + x) * 4;
-      const dx = Math.floor(Math.random() * 5) - 2;
-      const dy = Math.floor(Math.random() * 5) - 2;
-      const sx = Math.min(width - 1, Math.max(0, x + dx));
-      const sy = Math.min(height - 1, Math.max(0, y + dy));
-      const srcIndex = (sy * width + sx) * 4;
+  const width = canvas.width;
+  const height = canvas.height;
 
-      data[index] = originalImage.data[srcIndex];
-      data[index + 1] = originalImage.data[srcIndex + 1];
-      data[index + 2] = originalImage.data[srcIndex + 2];
+  const distortedImage = ctx.createImageData(width, height);
+  const originalData = originalImage.data;
+  const newData = distortedImage.data;
+
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
+      const dx = Math.floor(Math.random() * 9) - 4; // Cambia intensidad aquí
+      const dy = Math.floor(Math.random() * 9) - 4;
+
+      const srcX = Math.min(width - 1, Math.max(0, x + dx));
+      const srcY = Math.min(height - 1, Math.max(0, y + dy));
+      const srcIndex = (srcY * width + srcX) * 4;
+      const destIndex = (y * width + x) * 4;
+
+      newData[destIndex] = originalData[srcIndex];       // R
+      newData[destIndex + 1] = originalData[srcIndex + 1]; // G
+      newData[destIndex + 2] = originalData[srcIndex + 2]; // B
+      newData[destIndex + 3] = originalData[srcIndex + 3]; // A
     }
   }
 
-  ctx.putImageData(imageData, 0, 0);
+  ctx.putImageData(distortedImage, 0, 0);
 });
 
 // Brillo
