@@ -1,39 +1,58 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Editor de Bitmap</title>
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<title>Árbol de Navidad</title>
+<link rel="stylesheet" href="arbol.css">
 </head>
 <body>
-  <h1>Editor de Mapa de Bits</h1>
 
-  <input type="file" id="upload" accept="image/*">
-  <br><br>
+<!-- MENSAJE DE FELIZ NAVIDAD -->
+<div id="mensajeNavidad">¡FELIZ NAVIDAD! 🎉🎄</div>
 
-  <!-- Contenedor del canvas -->
-  <div class="canvas-container">
-    <canvas id="canvas"></canvas>
-  </div>
+<!-- LUNA -->
+<div class="luna"></div>
 
-  <br><br>
+<!-- SANTA -->
+<div id="santa">🎅🦌🦌</div>
 
-  <!-- Contenedor de controles -->
-  <div class="controls-container">
-    <button id="grayscale">Escala de grises</button>
-    <button id="invert">Invertir colores</button>
-    <button id="distort">Distorsionar</button>
-    <br><br>
+<!-- NIEVE -->
+<div class="nieve"></div>
 
-    <label for="brightnessRange">Brillo:</label>
-    <input type="range" id="brightnessRange" min="-100" max="100" value="0">
-    <span id="brightnessValue">0</span>
-    <br><br>
+<!-- ÁRBOL (CAPAS SUAVES) -->
+<div id="arbol">
+    <div class="estrellaC">★</div>
 
-    <button id="reset">Restablecer</button>
-    <button id="download">Descargar</button>
-  </div>
+    <!-- Capas de menor a mayor -->
+    <div class="capa" style="--w:100px"></div>
+    <div class="capa" style="--w:140px"></div>
+    <div class="capa" style="--w:180px"></div>
+    <div class="capa" style="--w:220px"></div>
+    <div class="capa" style="--w:260px"></div>
+    <div class="capa" style="--w:300px"></div>
 
-  <script src="script.js"></script>
+    <div class="troncoC"></div>
+</div>
+
+<!-- REGALOS -->
+<div class="regalos">
+    <div class="regalo" onclick="abrirRegalo(1)"></div>
+    <div class="regalo" onclick="abrirRegalo(2)"></div>
+    <div class="regalo" onclick="abrirRegalo(3)"></div>
+</div>
+
+<div id="msg1" class="mensaje">🎁 ¡Feliz Navidad! 🎄</div>
+<div id="msg2" class="mensaje">✨ Mucho amor y alegría ✨</div>
+<div id="msg3" class="mensaje">⭐ Que tus sueños se cumplan ⭐</div>
+
+<!-- CASAS -->
+<div class="casas">
+    <div class="casa"><div class="techo"></div></div>
+    <div class="casa"><div class="techo"></div></div>
+    <div class="casa"><div class="techo"></div></div>
+</div>
+
+<script src="arbol.js"></script>
 </body>
 </html>
+
